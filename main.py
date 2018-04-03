@@ -1,6 +1,5 @@
 import spotipy
 import mysql.connector as db
-import spotipy.util as util
 import configparser as cp
 from spotipy.oauth2 import SpotifyClientCredentials
 import json

@@ -2,17 +2,23 @@ import mysql.connector as db
 
 class Database:
 
-    @classmethod
-    def connectDatabase(self,Config):
-
+    def __init__(self,Config):
         self.__con = db.connect(host=Config['Database']['host'], database=Config['Database']['database'],
-                         user=Config['Database']['user'], password=Config['Database']['password'])
+                                user=Config['Database']['user'], password=Config['Database']['password'])
         self.__cursor = self.__con.cursor(buffered=True)
+
+    # @classmethod
+    # def connectDatabase(self,Config):
+    #
+    #     self.__con = db.connect(host=Config['Database']['host'], database=Config['Database']['database'],
+    #                      user=Config['Database']['user'], password=Config['Database']['password'])
+    #     self.__cursor = self.__con.cursor(buffered=True)
 
     @classmethod
     def control(self):
         if self.__con.is_connected():
             print("I am connected")
+
     @classmethod
     def organizedData(self, data):
         temp_list = []
